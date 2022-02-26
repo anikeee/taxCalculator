@@ -7,7 +7,7 @@
 @section('page-content')
     <div class="card card-primary col-md-6">
         <div class="card-header">
-            <h3 class="card-title">Salary Breakdown </h3>
+            <h3 class="card-title">Salary Breakdown</h3>
         </div>
 
 
@@ -15,25 +15,25 @@
             @csrf
             <div class="card-body">
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Basic Salary</label>
+                    <label for="exampleInputEmail1">Basic Salary (Monthly)</label>
                     <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Basic Salary" name="Basic_Salary">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">House Rent</label>
-                    <input type="number" class="form-control" id="exampleInputPassword1" placeholder="House Rent" name="House-Rent">
+                    <label for="exampleInputPassword1">House Rent (Monthly)</label>
+                    <input type="number" class="form-control" id="exampleInputPassword1" placeholder="House Rent" name="House_Rent">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Conveyance Allowance</label>
+                    <label for="exampleInputPassword1">Conveyance Allowance (Monthly)</label>
                     <input type="number" class="form-control" id="exampleInputPassword1" name="Conveyance_Allowance"
                            placeholder="Conveyance Allowance">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Medical Allowance</label>
+                    <label for="exampleInputPassword1">Medical Allowance (Monthly)</label>
                     <input type="number" class="form-control" id="exampleInputPassword1" name="Medical_Allowance"
                            placeholder="Medical Allowance">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Festival Bonus</label>
+                    <label for="exampleInputPassword1">Festival Bonus </label>
                     <input type="number" class="form-control" id="exampleInputPassword1" name="Festival_Bonus"
                            placeholder="Festival Bonus">
                 </div>
