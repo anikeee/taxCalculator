@@ -6,6 +6,15 @@
 @endsection
 @section('page-content')
     <div class="card card-primary col-md-6">
+        @if(isset($total_tax_paid))
+            <div class="ml-4 mt-4">
+                <h3 class="card-title" style="color: yellowgreen">Result : </h3> <br>
+                <p style="color: yellowgreen">Tax need to be paid : {{$total_tax_paid}} BDT on Taxable
+                    Income : {{$taxableIncome}} BDT</p>
+                <p style="color: yellowgreen">Allowable Investment Limit : {{$allowableInvestmentLimit}}</p>
+            </div>
+        @endif
+
         <div class="card-header">
             <h3 class="card-title">Salary Breakdown</h3>
         </div>
@@ -16,11 +25,13 @@
             <div class="card-body">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Basic Salary (Monthly)</label>
-                    <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Basic Salary" name="Basic_Salary">
+                    <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Basic Salary"
+                           name="Basic_Salary">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">House Rent (Monthly)</label>
-                    <input type="number" class="form-control" id="exampleInputPassword1" placeholder="House Rent" name="House_Rent">
+                    <input type="number" class="form-control" id="exampleInputPassword1" placeholder="House Rent"
+                           name="House_Rent">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Conveyance Allowance (Monthly)</label>
@@ -37,16 +48,16 @@
                     <input type="number" class="form-control" id="exampleInputPassword1" name="Festival_Bonus"
                            placeholder="Festival Bonus">
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Provident Fund</label>
-                    <input type="number" class="form-control" id="exampleInputPassword1" name="Provident_Fund"
-                           placeholder="Provident Fund">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Performance Bonus/ Leave Allowance/ Other Benefits </label>
-                    <input type="number" class="form-control" id="exampleInputPassword1" name="Performance_Bonus"
-                           placeholder="Performance Bonus/ Leave Allowance/ Other Benefits">
-                </div>
+                {{--                <div class="form-group">--}}
+                {{--                    <label for="exampleInputPassword1">Provident Fund</label>--}}
+                {{--                    <input type="number" class="form-control" id="exampleInputPassword1" name="Provident_Fund"--}}
+                {{--                           placeholder="Provident Fund">--}}
+                {{--                </div>--}}
+                {{--                <div class="form-group">--}}
+                {{--                    <label for="exampleInputPassword1">Performance Bonus/ Leave Allowance/ Other Benefits </label>--}}
+                {{--                    <input type="number" class="form-control" id="exampleInputPassword1" name="Performance_Bonus"--}}
+                {{--                           placeholder="Performance Bonus/ Leave Allowance/ Other Benefits">--}}
+                {{--                </div>--}}
                 <div class="form-group">
                     <label for="exampleInputPassword1">Investment Amount</label>
                     <input type="number" class="form-control" id="exampleInputPassword1" name="Investment_Amount"

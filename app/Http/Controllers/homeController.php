@@ -19,8 +19,8 @@ class homeController extends Controller
         $Conveyance_Allowance = request('Conveyance_Allowance');
         $Medical_Allowance = request('Medical_Allowance');
         $Festival_Bonus = request('Festival_Bonus');
-        $Provident_Fund = request('Provident_Fund');
-        $Performance_Bonus = request('Performance_Bonus');
+//        $Provident_Fund = request('Provident_Fund');
+//        $Performance_Bonus = request('Performance_Bonus');
         $Investment_Amount = request('Investment_Amount');
         $tax_on_basic_salary = $basic_salary * 12;
         $tax_on_house_rent = ($house_rent - $basic_salary * 0.5);
@@ -95,13 +95,66 @@ class homeController extends Controller
         //end of tax calculation
 
         $allowableInvestmentLimit = $taxableIncome * 0.25;
+
+        if ($Investment_Amount > $allowableInvestmentLimit) {
+            $Investment_Amount = $allowableInvestmentLimit;
+        }
         if ($taxableIncome <= 1000000) {
-            $taxCredit = $allowableInvestmentLimit * 0.15;
+            $taxCredit = $Investment_Amount * 0.15;
             $total_tax_paid = $total_tax_paid - $taxCredit;
         }
-        dd($total_tax_paid);
+        if ($taxableIncome > 1000000 && $taxableIncome <= 3000000) {
+            if ($Investment_Amount > 250000) {
+                $firstInvestmentAllowance = 250000;
+            } else {
+                $firstInvestmentAllowance = $Investment_Amount;
+            }
 
-        return view('dashboard');
+            $taxCredit1 = $firstInvestmentAllowance * 0.15;
+
+            $restInvestmentAllowance = $Investment_Amount - $firstInvestmentAllowance;
+
+            $taxCredit2 = $restInvestmentAllowance * 0.12;
+
+            $taxCredit = $taxCredit1 + $taxCredit2;
+            $total_tax_paid = $total_tax_paid - $taxCredit;
+
+        }
+        //For Taxable income more than 30 lac
+        if ($taxableIncome > 3000000) {
+            if ($Investment_Amount > 500000) {
+                $firstInvestmentAllowance = 500000;
+                $Investment_Amount = $Investment_Amount - $firstInvestmentAllowance;
+            } else {
+                $firstInvestmentAllowance = $Investment_Amount;
+            }
+
+            if ($Investment_Amount > 250000) {
+                $secondInvestmentAllowance = 250000;
+                $Investment_Amount = $Investment_Amount - $secondInvestmentAllowance;
+            } else {
+                $secondInvestmentAllowance = $Investment_Amount;
+            }
+
+            $taxCredit1 = $firstInvestmentAllowance * 0.15;
+
+            $restInvestmentAllowance = $Investment_Amount;
+
+            $taxCredit2 = $secondInvestmentAllowance * 0.12;
+            $taxCredit3 = $restInvestmentAllowance * 0.10;
+
+            $taxCredit = $taxCredit1 + $taxCredit2 + $taxCredit3;
+            $total_tax_paid = $total_tax_paid - $taxCredit;
+
+        }
+
+
+        return view('dashboard', [
+            'taxableIncome' => $taxableIncome,
+            'allowableInvestmentLimit' => $allowableInvestmentLimit,
+            'Investment_Amount' => $Investment_Amount,
+            'total_tax_paid' => $total_tax_paid,
+        ]);
     }
 
 }
