@@ -44,20 +44,20 @@
                            placeholder="Medical Allowance">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Festival Bonus </label>
+                    <label for="exampleInputPassword1">Festival Bonus (Per Eid)</label>
                     <input type="number" class="form-control" id="exampleInputPassword1" name="Festival_Bonus"
                            placeholder="Festival Bonus">
                 </div>
-                {{--                <div class="form-group">--}}
-                {{--                    <label for="exampleInputPassword1">Provident Fund</label>--}}
-                {{--                    <input type="number" class="form-control" id="exampleInputPassword1" name="Provident_Fund"--}}
-                {{--                           placeholder="Provident Fund">--}}
-                {{--                </div>--}}
-                {{--                <div class="form-group">--}}
-                {{--                    <label for="exampleInputPassword1">Performance Bonus/ Leave Allowance/ Other Benefits </label>--}}
-                {{--                    <input type="number" class="form-control" id="exampleInputPassword1" name="Performance_Bonus"--}}
-                {{--                           placeholder="Performance Bonus/ Leave Allowance/ Other Benefits">--}}
-                {{--                </div>--}}
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Provident Fund (per month)</label>
+                                    <input type="number" class="form-control" id="exampleInputPassword1" name="Provident_Fund"
+                                           placeholder="Provident Fund">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Performance Bonus/ Leave Allowance/ Other Benefits (In a Year)</label>
+                                    <input type="number" class="form-control" id="exampleInputPassword1" name="Performance_Bonus"
+                                           placeholder="Performance Bonus/ Leave Allowance/ Other Benefits">
+                                </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Investment Amount</label>
                     <input type="number" class="form-control" id="exampleInputPassword1" name="Investment_Amount"

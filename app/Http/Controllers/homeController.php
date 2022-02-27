@@ -19,10 +19,11 @@ class homeController extends Controller
         $Conveyance_Allowance = request('Conveyance_Allowance');
         $Medical_Allowance = request('Medical_Allowance');
         $Festival_Bonus = request('Festival_Bonus');
-//        $Provident_Fund = request('Provident_Fund');
-//        $Performance_Bonus = request('Performance_Bonus');
+        $Provident_Fund = request('Provident_Fund');
+        $Performance_Bonus = request('Performance_Bonus');
         $Investment_Amount = request('Investment_Amount');
         $tax_on_basic_salary = $basic_salary * 12;
+        $tax_on_PF = $Provident_Fund * 12;
         $tax_on_house_rent = ($house_rent - $basic_salary * 0.5);
         if ($tax_on_house_rent < 0) {
             $tax_on_house_rent = 0;
@@ -36,7 +37,7 @@ class homeController extends Controller
             $tax_on_Medical_Allowance = 0;
         }
         $tax_on_Festival_Bonus = $Festival_Bonus * 2;
-        $taxableIncome = $tax_on_basic_salary + $tax_on_house_rent + $tax_on_Conveyance_Allowance + $tax_on_Medical_Allowance + $tax_on_Festival_Bonus;
+        $taxableIncome = $tax_on_basic_salary + $tax_on_house_rent + $tax_on_Conveyance_Allowance + $tax_on_Medical_Allowance + $tax_on_Festival_Bonus + $tax_on_PF + $Performance_Bonus ;
         $taxableIncomeSwap = $taxableIncome;
 
         //starts of tax calculation
