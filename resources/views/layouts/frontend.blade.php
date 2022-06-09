@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tax Calculator | Dashboard </title>
+    <title> Dashboard </title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -46,7 +46,7 @@
                 <a href="" class="brand-link">
                     <img src="{{ asset('assets/img/logo.png/') }}" alt="" class="brand-image img-circle elevation-3"
                         style="opacity: .8">
-                    <span class="brand-text font-weight-light">Tax Calculator</span>
+                    <span class="brand-text font-weight-light">Dashboard </span>
 
                 </a>
 
@@ -74,10 +74,16 @@
                             <!-- Add icons to the links using the .nav-icon class
                            with font-awesome or any other icon font library -->
                             <li class="nav-item">
-                                <a href="{{route('dashboard')}}" class="nav-link">
+                                <a href="{{route('createStudent')}}" class="nav-link">
                                     <i class="nav-icon fas fa-tachometer-alt"></i>
                                     <p>
-                                        Tax Calculator
+                                       Create Student
+                                    </p>
+                                </a>
+                                <a href="{{route('studentDetails')}}" class="nav-link">
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                    <p>
+                                        Student Details
                                     </p>
                                 </a>
                             </li>

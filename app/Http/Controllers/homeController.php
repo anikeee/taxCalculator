@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StudentRequest;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class homeController extends Controller
@@ -10,6 +12,57 @@ class homeController extends Controller
     {
 
         return view('dashboard');
+    }
+
+    public function createStudent(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    {
+        return view('createStudent');
+    }
+    public function studentDetails(){
+          $students = Student::all();
+        return view('showStudent' , [
+            'students' => $students
+        ]);
+    }
+    public function studentEdit(Student $id){
+
+        return view('createStudent',[
+            'student' => $id
+        ]);
+    }
+    public function updateStudent(StudentRequest $request, $id): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    {
+        $studentData= $request->except('_token');
+        try {
+            Student::where('id',$id)->update($studentData);
+            return view('createStudent' , [
+                'message' => 'data updated successfully'
+            ]);
+        } catch (\Exception $exception){
+
+            return view('createStudent' , [
+                'message' => $exception->errorInfo[2]
+            ]);
+        }
+
+    }
+    public function storeStudent(StudentRequest $request): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    {
+        $studentData= $request->except('_token');
+//        dd($studentData);
+        try {
+            Student::create($studentData);
+            return view('createStudent' , [
+                'message' => 'data inserted successfully'
+            ]);
+        } catch (\Exception $exception){
+
+            return view('createStudent' , [
+                'message' => $exception->errorInfo[2]
+            ]);
+        }
+
+
     }
 
     public function calculateTax()
